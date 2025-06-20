@@ -23,7 +23,15 @@ nav {
     margin: 1rem;
     display: flex;
     flex-direction: column;
-    background-color: var(--rose-taupe);
+    background-color: var(--rose-taupe);.book-card {
+    font-size: 0.95rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.book-card:hover {
+    transform: scale(1.02);
+}
+
 }
 
 .book-image {
@@ -32,8 +40,13 @@ nav {
     width: 100%;
     border-radius: 10px;
 }
+
 .colophon {
-    font-size: 1.5rem;   /* or try 2.5rem, 3rem */
-    font: weight 15px bold;;
-    font-style: italic;
+    font-size: 1.5rem;       /* Adjust as needed: 2.5rem, 3rem, etc. */
+    font-weight: bold;       /* Correct way to set font weight */
+    font-style: italic;      /* Italic text */
+    display: flex;           /* Required for flex-direction to work */
+    justify-content: flex-end; /* Aligns content to the left */
+    /* optionally: align-items: center; */
 }
+

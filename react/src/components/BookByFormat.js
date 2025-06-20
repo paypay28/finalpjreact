@@ -35,7 +35,7 @@ const BookByFormat =()=> {
         return (
         <main className="main" id="allBooksMain">
             <div className="container">
-                <section className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                <section className="row row-cols-3 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                     { BookCardComponents }
                 </section>
             </div>
