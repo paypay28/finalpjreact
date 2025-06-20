@@ -5,7 +5,7 @@ const bookDao = {
 
     findBooks: (res, table)=> {
         con.execute(
-            `select b.book_id, b.title, a.author, p.publisher, b.copyright_year, b.edition, b.edition_year, b.binding, b.rating, b.language, b.num_pages
+            `select b.book_id, b.title, a.author, p.publisher, b.copyright_year, b.edition, b.edition_year, b.binding, b.rating, b.language, b.num_pages, b.qty, b.cover_image
             from book b
             join author a using (author_id)
             join publisher p using (publisher_id)
@@ -55,7 +55,7 @@ const bookDao = {
                 )
 
                     con.execute(
-                    `select b.book_id, b.title, a.author, p.publisher, b.copyright_year, b.edition, b.edition_year, b.binding, b.rating, b.language, b.num_pages
+                    `select b.book_id, b.title, a.author, p.publisher, b.copyright_year, b.edition, b.edition_year, b.binding, b.rating, b.language, b.num_pages, b.qty, b.cover_image
                     from book b
                     join author a using (author_id)
                     join publisher p using (publisher_id)

@@ -9,7 +9,7 @@ const AllPublisher =({ publishers })=> {
             key={publisher.publisher_id}
             id={publisher.publisher_id}
             title={publisher.publisher}
-            // img_url={publisher.img_url}
+            img_url={publisher.img_url}
             />
         )
     })

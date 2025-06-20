@@ -15,9 +15,9 @@ import AllPublisher from './components/AllPublisher'
 import BooksByGenre from "./components/BooksByGenre";
 import PublisherCard from './components/PublisherCard'
 import BooksByPublisher from "./components/BooksByPubisher";
-import BooksByFormat from "./components/BooksByFormat";
+import BooksByFormat from "./components/BookByFormat"
+import BookForm from "./components/BookForm";
 
-import AddBookForm from "./components/AddBookForm";
 import Main from "./components/Main";
 
 import Error from './components/Error'
@@ -42,7 +42,7 @@ const App =()=> {
     }, [])
 
 
-      const [ publishers, setPublisher ] = useState([])
+        const [ publishers, setPublisher ] = useState([])
 
     useEffect(()=> {
         const url = 'http://localhost:3008/api/publisher'
@@ -50,15 +50,72 @@ const App =()=> {
         axios.get(url).then(res => setPublisher(res.data))
     }, [])
 
-        const [ bookgenre, setBookGenre ] = useState([])
 
-const params = useParams()
+    const [ formData, setFormData ] = useState({
+            title: '',
+            author_id: 0,
+            publisher_id: 0,
+            copyright_year: 1900,
+            edition: '',
+            edition_year: 1900,
+            binding: '',
+            rating: 1,
+            language: '',
+            num_pages: '',
+            qty: 1,
+            cover_image: ''
+    })
 
-useEffect(()=> {
-    const url = `http://localhost:3005/api/genre/genre/${params.id}`
-    axios.get(url).then(res => setBookGenre(res.data))
-}, [])
+    const [ isPostSuccess, setIsPostSuccess] = useState({
+        isSuccess: false,
+        id: 0
+    })
 
+    const resetData=()=> {
+        setIsPostSuccess({
+            isSuccess: false,
+            id: 0
+        })
+
+        setFormData({
+            title: '',
+            author_id: 0,
+            publisher_id: 0,
+            copyright_year: 1900,
+            edition: '',
+            edition_year: 1900,
+            binding: '',
+            rating: 1,
+            language: '',
+            num_pages: '',
+            qty: 1,
+            cover_image: ''
+        })
+    }
+
+    const handleSubmit =(e)=> {
+        e.preventDefault()
+        console.log(formData)
+
+        axios({
+            method: 'post',
+            url: 'http://localhost:3008/api/book/post',
+            data: formData
+        }).then(response => {
+            setIsPostSuccess({isSuccess: true, id: response.data.Last_id})
+        })
+    }
+
+    const handleChange =(event)=> {
+        const { name, value } = event.target
+
+        setFormData(prevState => {
+            return {
+                ...prevState,
+                [name]: value
+            }
+        })
+    }
 
 
     return(
@@ -68,21 +125,19 @@ useEffect(()=> {
             <Route path="/" element={ <AllBooks books={books} />} />
             <Route path="/book/:id" element={<SingleBook />} />
 
-            <Route path="/AddBookForm" element={<AddBookForm />} />
 
-           
             <Route path="/author" element={ <AllAuthor authors={authors} />} />
-           <Route path="/author/:id" element={ <BooksByAuthor />} />
+            <Route path="/author/:id" element={ <BooksByAuthor />} />
 
             <Route path="/publisher" element={ <AllPublisher publishers={publishers} />} />
-         <Route path="/publisher/:id" element={ <BooksByPublisher />} />
+            <Route path="/publisher/:id" element={ <BooksByPublisher />} />
 
-         <Route path="/genre/:id" element={ <BooksByGenre />} />
+            <Route path="/genre/:id" element={ <BooksByGenre />} />
 
             <Route path="/format/:id" element={ <BooksByFormat />} />
 
-         
-
+            <Route 
+                    path="/bookForm" element={ <BookForm handleSubmit={ handleSubmit } handleChange={handleChange} formData={formData}  isPostSuccess={isPostSuccess}/>} />
             <Route path="*" element={<Error />} />
         </Routes>
         <Footer/>

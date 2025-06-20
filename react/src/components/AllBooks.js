@@ -10,6 +10,7 @@ const cardComponents = books.map(book => {
         key={book.book_id}
         id={book.book_id}
         title={book.title}
+        cover_image={book.cover_image}
         />
     )
 })
@@ -17,7 +18,7 @@ const cardComponents = books.map(book => {
 
 
     return(
-        <main className="main" id="teamMain">
+        <main className="main" id="bookMain">
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-5">
                     { cardComponents }

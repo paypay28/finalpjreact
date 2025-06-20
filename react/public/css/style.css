@@ -1,6 +1,39 @@
-/*
+:root {
+    --sage: hsla(50, 37%, 69%, 1);
+    --licorice: hsla(334, 100%, 3%, 1);
+    --rose-taupe: hsla(357, 19%, 44%, 1);
+    --skobeloff: hsla(177, 61%, 29%, 1);
+    --dark-green: hsla(154, 72%, 13%, 1);
+}
 
-fonts:
+body {
+    font-family: "Edu QLD Hand", cursive, sans-serif;
+    background-color: var(--rose-taupe);
+}
+nav {
+    background-color: var(--licorice);
+    color: var(--licorice);
+    padding: 1rem;
+    font-style:black;
+    font-size: 1.2rem;
+}
+.book-card {
+    height: 100%;
+    width: 100%;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--rose-taupe);
+}
 
-font-family: "Edu QLD Hand, cursive,sans-serif";
-font-family: "Edu QLD Hand",sans-serif;
+.book-image {
+    height: 300px; /* or any fixed value that works for your layout */
+    object-fit: cover; /* ensures the image fills the space without distortion */
+    width: 100%;
+    border-radius: 10px;
+}
+.colophon {
+    font-size: 1.5rem;   /* or try 2.5rem, 3rem */
+    font: weight 15px bold;;
+    font-style: italic;
+}

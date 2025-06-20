@@ -149,3 +149,19 @@ CASE
     FROM Book b
     LEFT OUTER JOIN book  ON book.author_id = book.author_id
     LEFT OUTER JOIN author ON author.book_id = a.author_id;
+
+
+    update publisher set img_url = 'balzerbray.jpeg' where publisher_id = 1;
+    update publisher set img_url = 'colleenhover.jpeg' where publisher_id = 2;
+    update publisher set img_url = 'haperlee.jpeg' where publisher_id = 3;
+    update publisher set img_url = 'jg.jpeg' where publisher_id = 4;
+    update publisher set img_url = 'jrrtolkien.jpeg' where publisher_id = 5;
+    update publisher set img_url = 'rebeccayarros.jpeg' where publisher_id = 6;
+    update publisher set img_url = 'suzannecollins.jpeg' where publisher_id = 7;
+    update publisher set img_url = 'fscottfitzgerald.jpeg' where publisher_id = 8;
+    update publisher set img_url = 'loislowry.jpeg' where publisher_id = 9;
+    update publisher set img_url = 'sehinton.jpeg' where publisher_id = 10;
+
+
+    alter table publisher
+add column img_url mediumtext; 

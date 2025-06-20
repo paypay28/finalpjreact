@@ -22,7 +22,7 @@ const BooksByGenre =()=> {
                 key={book.book_id}
                 id={book.book_id}
                 title={book.title}
-                // cover_image={book.cover_image}
+                cover_image={book.cover_image}
             />
         )
     })

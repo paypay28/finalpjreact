@@ -7,7 +7,7 @@ import BookCard from "./BookCard"
 
 
 
-const BooksByFormat =()=> {
+const BookByFormat =()=> {
 
     
 
@@ -23,11 +23,11 @@ const BooksByFormat =()=> {
 
     const BookCardComponents = bookformat.map(book => {
         return (
-            <BooksCard
+            <BookCard
                 key={book.book_id}
                 id={book.book_id}
                 title={book.title}
-                // cover_image={book.cover_image}
+                cover_image={book.cover_image}
             />
         )
     })
@@ -35,8 +35,7 @@ const BooksByFormat =()=> {
         return (
         <main className="main" id="allBooksMain">
             <div className="container">
-                
-                <section className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-5">
+                <section className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                     { BookCardComponents }
                 </section>
             </div>
@@ -49,4 +48,4 @@ const BooksByFormat =()=> {
 
 
 
-export default BooksByFormat
+export default BookByFormat

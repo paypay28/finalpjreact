@@ -4,9 +4,9 @@ const con = require('../../config/dbconfig')
 const formatDao = {
     table: 'format',
 
-    findBooksByFormat: (res, id) => {
+    findBooksByFormat: (res, table, id) => {
         con.execute(
-            `select b.book_id, b.title, a.author, p.publisher, b.copyright_year, b.qty, b.edition, b.edition_year, b.binding, b.rating, b.language, b.num_pages, b.qty, f.format
+            `select b.book_id, b.title, a.author, p.publisher, b.copyright_year, b.qty, b.edition, b.edition_year, b.binding, b.rating, b.language, b.num_pages, b.qty, b.cover_image, f.format
             from book b
             join author a using (author_id)
             join publisher p using (publisher_id)

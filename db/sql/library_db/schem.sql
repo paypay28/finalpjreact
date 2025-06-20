@@ -80,11 +80,15 @@ create table book_to_format (
     constraint fk_format_bf foreign key (format_id) references format (format_id)
 );
 
-alter table book
-add column edition_year year;
+alter table publisher
+add column img_url mediumtext; 
 add 
+
+
 
 set @num:= 0;
 update author set id = @num:= (@num + 1);
 alter table book auto_increment = 1;
 
+alter table book 
+modify edition_year smallint;

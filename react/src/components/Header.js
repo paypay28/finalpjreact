@@ -4,10 +4,13 @@ const Header =()=> {
 
     return(
     <header className="header" id="header">
-            <div className="container mt-5">
+            <div className="container mb-3">
                 <div className="row">
                     <div className="col">
                         <Nav />
+                        <div className="banner-image d-flex justify-content-center">
+                            <img src="/readingrainbow.jpeg" alt="placeholder img" className=" top-img img-fluid image w-75 h-50" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -15,4 +18,4 @@ const Header =()=> {
     )
 }
 
-export default Header 
+export default Header
