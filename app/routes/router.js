@@ -1,17 +1,32 @@
 const express = require('express')
 const router = express.Router()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3008
 
-router.use(express.static('public'))
 
 //Root route => localhost:3000/api
-router.get('/api',(req,res)=> {
+router.get('/api', (req, res)=> {
     res.json({
-        'Books':`http://localhost:${PORT}/api/book`,
-        'title':`http://localhost:${PORT}/api/title`,
-        'author':`http://localhost:${PORT}/api/author`,
-        'publisher':`http://localhost:${PORT}/api/publisher`,
-        'copyright_year':`http://localhost:${PORT}`
+        'Books': `http://localhost:${PORT}/api/book`,
+        'author': `http://localhost:${PORT}/api/author`,
+        'publisher': `http://localhost:${PORT}/api/publisher`,
+        'genre': `http://localhost:${PORT}/api/genre`,
+        'format': `http://localhost:${PORT}/api/format`
+        
     })
 })
+
+const endpoints = [
+    'book',
+    'author',
+    'publisher',
+    'genre',
+    'format'
+]
+
+
+
+endpoints.forEach(endpoint => {
+    router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
+})
+
 module.exports = router
