@@ -1,5 +1,3 @@
-
-
 import AuthorCard from "./AuthorCard"
 
 

@@ -80,9 +80,13 @@ create table book_to_format (
     constraint fk_format_bf foreign key (format_id) references format (format_id)
 );
 
+
+
 alter table publisher
 add column img_url mediumtext; 
 add 
+DELETE FROM book
+WHERE book_id = 22;
 
 
 

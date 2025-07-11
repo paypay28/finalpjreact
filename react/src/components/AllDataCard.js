@@ -17,3 +17,5 @@ const AllDataCard =(props)=> {
 }
 
 export default AllDataCard
+
+

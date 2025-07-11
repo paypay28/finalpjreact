@@ -30,7 +30,6 @@ router.get('/:id', (req, res)=> {
 })
 
 
- 
 
 router.post('/post', (req, res)=> {
     dao.create(req, res, dao.table)
